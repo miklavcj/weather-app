@@ -1,44 +1,39 @@
 <template>
-  <div id="app">
-   
-    <AddCity />
+  <v-app>
+    <v-main>
+      <v-container id="container" class="mt-6">
+        <v-row justify="center">
+          <AddCity />
+        </v-row>
+        <v-row justify="center">
+          <DisplayCity />
+        </v-row>
 
-    <CityList />
-  </div>
+        <v-row justify="center">
+          <CityList />
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
+
 <script>
-// @ is an alias to /src
-import CityList from "@/components/CityList.vue";
-import AddCity from "@/components/AddCity.vue";
+import CityList from "./components/CityList";
+import AddCity from "./components/AddCity";
+import DisplayCity from "./components/DisplayCity";
 
 export default {
-  name: "Home",
+  name: "App",
+
   components: {
     CityList,
-    AddCity
-  }
+    AddCity,
+    DisplayCity,
+  },
 };
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#container {
+  border: 1px solid black;
 }
 </style>
