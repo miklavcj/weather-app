@@ -1,16 +1,12 @@
 <template>
   <v-app>
     <v-main>
-      <v-container id="container" class="mt-6">
+      <v-container id="container" class="mt-6 blue-grey lighten-5">
         <v-row justify="center">
-          <AddCity />
+          <CityList />
         </v-row>
         <v-row justify="center">
           <DisplayCity />
-        </v-row>
-
-        <v-row justify="center">
-          <CityList />
         </v-row>
       </v-container>
     </v-main>
@@ -19,7 +15,6 @@
 
 <script>
 import CityList from "./components/CityList";
-import AddCity from "./components/AddCity";
 import DisplayCity from "./components/DisplayCity";
 
 export default {
@@ -27,13 +22,8 @@ export default {
 
   components: {
     CityList,
-    AddCity,
     DisplayCity,
   },
 };
 </script>
-<style>
-#container {
-  border: 1px solid black;
-}
-</style>
+<style></style>

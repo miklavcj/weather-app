@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <v-card elevation="3" class="pa-6 mt-2">
-      <v-card-text
-        >Add a City:
-        <v-text-field v-model="city" label="City" id="city"></v-text-field>
-      </v-card-text>
-
-      <v-card-actions>
-        <v-btn @click="addCity()">Submit</v-btn>
-        <v-btn @click="city = ''">Cancel</v-btn>
-      </v-card-actions>
-      <v-card-subtitle v-if="alert">Please enter a city</v-card-subtitle>
-    </v-card>
-  </div>
+  <v-container id="input-usage" fluid>
+    <v-row>
+      <v-col cols="10">
+        <v-text-field
+          v-model="city"
+          label="Add a City"
+          id="city"
+          filled
+        ></v-text-field>
+      </v-col>
+      <v-col cols="2">
+        <v-btn color="primary" outlined small @click="addCity()">Submit</v-btn>
+        <v-btn outlined small text @click="city = ''">Cancel</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -37,13 +39,23 @@ export default {
     },
   },
   methods: {
+    toTitleCase() {
+      return this.city
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    },
     addCity() {
       if (this.city === "") {
         this.alert = true;
       } else {
-        this.cityList.push(this.city);
+        let capitalizedCity = this.toTitleCase();
+        this.cityList.push(capitalizedCity);
         this.alert = false;
         this.city = "";
+
+        localStorage.setItem("cityList", JSON.stringify(this.cityList));
       }
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="selectedCity !== ''">
+  <v-card v-if="selectedCity !== ''" width="800">
     <v-card-text>
       <v-card-title>{{ selectedCity }}</v-card-title>
       <p>Temp: {{ Math.floor(city.temp) }}</p>
