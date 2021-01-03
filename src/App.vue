@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+   
+    <AddCity />
+
+    <CityList />
   </div>
 </template>
+<script>
+// @ is an alias to /src
+import CityList from "@/components/CityList.vue";
+import AddCity from "@/components/AddCity.vue";
+
+export default {
+  name: "Home",
+  components: {
+    CityList,
+    AddCity
+  }
+};
+</script>
 
 <style>
 #app {
